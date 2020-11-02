@@ -18,10 +18,8 @@ class Provider {
   static async post (url) {
     const result = makeResult()
     try {
-      const response = await axios({
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json charset=utf-8' },
-        url
+      const response = await axios.post(url, {
+        headers: { 'Content-Type': 'application/json charset=utf-8' }
       })
       result.data = response.data
     } catch (error) {
