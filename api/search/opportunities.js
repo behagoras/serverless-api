@@ -1,4 +1,5 @@
 const { default: Axios } = require('axios')
+const allowCors = require('../../allowCors')
 
 async function searchOpportunitiesApi (req, res) {
   try {
@@ -19,4 +20,4 @@ async function searchOpportunitiesApi (req, res) {
   }
 }
 
-module.exports = searchOpportunitiesApi
+module.exports = allowCors(searchOpportunitiesApi)

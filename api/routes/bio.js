@@ -1,12 +1,7 @@
 const Axios = require('axios')
-const express = require('express')
-const app = express()
-const cors = require('cors')
+const allowCors = require('../allowCors')
 
-app.use(cors())
-app.use(express.json())
-
-app.get('/api/bio', (req, res) => {
+async function bioApi (req, res) {
   res.setHeader('Access-Control-Allow-Credentials', true)
   res.setHeader('Access-Control-Allow-Origin', '*')
   // another common pattern
@@ -23,8 +18,6 @@ app.get('/api/bio', (req, res) => {
   } catch (err) {
     res.json({ err })
   }
-})
+}
 
-app.listen(3001, () => {
-  console.log('app listening in port 3001')
-})
+module.exports = bioApi
