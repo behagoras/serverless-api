@@ -1,0 +1,12 @@
+html
+    head
+        title=title
+    body(style={padding:'20px'})
+        script(type='text/javascript') window.copyit = (text) => { navigator.clipboard.writeText(text) }
+        h1="Available Endpoints"
+        ul
+            each val in endpoints
+                li
+                    span(style={display:'flex', 'flex-direction':'row', 'align-items':'center', gap:'10px'})
+                        p #{val.method} #{val.uri}
+                        button( onclick='copyit(\''+ val.uri +'\')' ) Copy
